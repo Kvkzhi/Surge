@@ -16,5 +16,3 @@ DOMAIN,hls.itunes.apple.com
 DOMAIN,gspe1-ssl.ls.apple.com
 USER-AGENT,AppleNews*
 USER-AGENT,com.apple.appstored*,force-remote-dns
-
-
