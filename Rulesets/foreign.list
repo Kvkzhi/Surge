@@ -540,7 +540,7 @@ DOMAIN-KEYWORD,youtube,force-remote-dns
 DOMAIN-KEYWORD,blogspot,force-remote-dns
 DOMAIN-KEYWORD,facebook,force-remote-dns
 DOMAIN-KEYWORD,twitter,force-remote-dns
-DOMAIN-KEYWORD
+DOMAIN-KEYWORD,proxy
 DOMAIN-KEYWORD,porn
 DOMAIN-KEYWORD,jav
 DOMAIN-KEYWORD,xxx
