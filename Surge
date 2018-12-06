@@ -1,0 +1,65 @@
+[General]
+loglevel = notify
+dns-server = 223.5.5.5, 119.29.29.29, system
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com
+external-controller-access = Kvkzhi@0.0.0.0:3333
+http-listen = 0.0.0.0:8888
+socks5-listen = 0.0.0.0:8889
+internet-test-url = http://www.bing.com/
+proxy-test-url = http://www.gstatic.com/generate_204
+test-timeout = 3
+ipv6 = true
+allow-wifi-access = true
+show-error-page-for-reject = true
+exclude-simple-hostnames = true
+enhanced-mode-by-rule = false
+use-default-policy-if-wifi-not-primary = false
+replica = false
+
+[Replica]
+hide-apple-request = true
+hide-crashlytics-request = true
+hide-udp = false
+use-keyword-filter = false
+
+[Proxy]
+Direct = direct
+Ad-Pass = direct
+Ad-Block = reject
+Ad-GIF = reject-tinygif
+
+[Proxy Group]
+Proxy = select, policy-path=https://cccat.pw/user/surge3list.php?token=5890dd477e682643240bbaca6b071988
+Domestic = select, Direct, Proxy
+Others = select, Proxy, Direct
+AdBlock = select, Ad-GIF, Ad-Block, Ad-Pass, Proxy
+Apple = select, Direct, Proxy
+China_media = select, Direct, Proxy
+Global_media = select, Speed, Direct
+Speed = url-test, policy-path=https://cccat.pw/user/surge3list-nf.php?token=5890dd477e682643240bbaca6b071988, url = http://captive.apple.com, interval = 600, tolerance = 200
+
+[Rule]
+# Rulesets
+RULE-SET,SYSTEM,Apple
+RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge3/reject.list,AdBlock
+RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge3/china_media.list,China_media
+RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge3/global_media.list,Global_media
+RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge3/proxy.list,Proxy
+RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge3/domestic.list,Domestic
+RULE-SET,LAN,DIRECT
+GEOIP,CN,Domestic
+FINAL,Others,dns-failed
+
+[URL Rewrite]
+^https?://(www.)?(g|google).cn https://www.google.com 302
+^https://zh.(m.)?wikipedia.org/zh(-\w*)?(?=/) http://www.wikiwand.com/zh$2 302
+^https://(\w*).(m.)?wikipedia.org/wiki http://www.wikiwand.com/$1 302
+
+[Header Rewrite]
+^https?://www.zhihu.com/question/ header-replace User-Agent Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.120 Safari/537.36
+
+[MITM]
+skip-server-cert-verify = true
+hostname = *wikipedia.org, www.zhihu.com
+ca-passphrase = 66BC6FE3
+ca-p12 = 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
