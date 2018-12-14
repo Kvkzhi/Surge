@@ -2,7 +2,7 @@
 loglevel = notify
 dns-server = 223.5.5.5, 119.29.29.29, system
 skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com
-external-controller-access = Kvkzhi@0.0.0.0:3333
+external-controller-access = test@0.0.0.0:3333
 http-listen = 0.0.0.0:8888
 socks5-listen = 0.0.0.0:8889
 internet-test-url = http://www.bing.com/
@@ -29,14 +29,14 @@ Ad-Block = reject
 Ad-GIF = reject-tinygif
 
 [Proxy Group]
-Proxy = select, policy-path=https://cccat.pw/user/surge3list.php?token=5890dd477e682643240bbaca6b071988
+Proxy = select, policy-path=
 Domestic = select, Direct, Proxy
 Others = select, Proxy, Direct
 AdBlock = select, Ad-GIF, Ad-Block, Ad-Pass, Proxy
 Apple = select, Direct, Proxy
 China_media = select, Direct, Proxy
 Global_media = select, Speed, Direct
-Speed = url-test, policy-path=https://cccat.pw/user/surge3list-nf.php?token=5890dd477e682643240bbaca6b071988, url = http://captive.apple.com, interval = 600, tolerance = 200
+Speed = url-test, policy-path=, url = http://captive.apple.com, interval = 600, tolerance = 200
 
 [Rule]
 # Rulesets
